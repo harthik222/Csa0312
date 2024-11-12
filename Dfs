@@ -1,0 +1,37 @@
+#include <stdio.h>
+void DFS(int graph[6][6], int vertex, int visited[6]) {
+    visited[vertex] = 1;
+    printf("%d ", vertex);
+    for (int i = 0; i < 6; i++) {
+        if (graph[vertex][i] && !visited[i]) {
+            DFS(graph, i, visited);
+        }
+    }
+}
+int main() {
+    int graph[6][6] = {{0, 1, 0, 0, 0, 0},
+                      {1, 0, 1, 0, 0, 0},
+                      {0, 1, 0, 1, 0, 0},
+                      {0, 0, 1, 0, 1, 0},
+                      {0, 0, 0, 1, 0, 1},
+                      {0, 0, 0, 0, 1, 0}};
+    int visited[6] = {0};
+    DFS(graph, 0, visited);
+    return 0;
+}
+
+8.missing element
+#include<stdio.h>
+int main()
+{
+  int a[]={1,2,3,5,6,7};
+  int n=sizeof(a)/sizeof(a[0]);
+  int i,sum=0,total=0,missing;
+  total=n*(n+1)/2;
+  for(i=0;i<n-1;i++)
+  {
+    sum+=a[i];
+  }
+  missing=total-sum;
+  printf("%d",missing);
+}
