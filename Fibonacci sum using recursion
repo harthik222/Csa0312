@@ -1,35 +1,15 @@
-#include<stdio.h>
-int fibonacci(int n)
-{
-  if(n==0)
-  {
+#include <stdio.h>
+
+int fibonacci(int n) {
+    return (n <= 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int fibonacciSum(int n) {
+    return (n < 0) ? 0 : fibonacci(n) + fibonacciSum(n - 1);
+}
+
+int main() {
+    int limit = 5; // Change this value for different limits
+    printf("Sum of Fibonacci numbers up to %d: %d\n", limit, fibonacciSum(limit));
     return 0;
-  }
-  else if(n==1)
-  {
-    return 1;
-  }
-  else
-  {
-    return fibonacci(n-1)+fibonacci(n-2);
-  }
-}
-int printsum(int n)
-{
-  int i,a,sum=0;
-  printf("fibonacci series:");
-  for(i=0;i<n;i++)
-  {
-    a=fibonacci(i);
-    printf(" %d ",a);
-    sum+=a;
-  }
-  return sum;
-}
-int main()
-{
-  int a;
-  printf("enter the range:\n");
-  scanf("%d",&a);
-  printf("\nsum:%d",printsum(a));
 }
